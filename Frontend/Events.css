@@ -1,22 +1,25 @@
 .events-page {
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
+  min-height: 100vh;
+  min-width: 170vh;
 }
 
 .events-header {
   text-align: center;
   margin-bottom: 3rem;
+  padding: 2rem 0;
 }
 
 .events-header h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   color: #1e293b;
   margin-bottom: 0.5rem;
 }
 
 .events-header p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   color: #64748b;
 }
 
@@ -27,11 +30,13 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
 }
 
 .search-container {
   flex: 1;
   min-width: 300px;
+  max-width: 500px;
 }
 
 .search-input {
@@ -46,6 +51,7 @@
 .search-input:focus {
   outline: none;
   border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .category-select {
@@ -56,11 +62,13 @@
   background: white;
   cursor: pointer;
   transition: border-color 0.3s ease;
+  min-width: 150px;
 }
 
 .category-select:focus {
   outline: none;
   border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .events-stats {
@@ -68,12 +76,14 @@
   margin-bottom: 2rem;
   color: #64748b;
   font-size: 0.9rem;
+  padding: 0 20px;
 }
 
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
+  padding: 0 20px;
 }
 
 .no-events {
@@ -82,6 +92,7 @@
   padding: 3rem;
   background: #f8fafc;
   border-radius: 12px;
+  margin: 2rem 0;
 }
 
 .no-events h3 {
@@ -116,25 +127,67 @@
   100% { transform: rotate(360deg); }
 }
 
-@media (max-width: 768px) {
+/* Responsive design - Stack columns at 700px */
+@media (max-width: 700px) {
   .events-page {
     padding: 10px;
+    min-width: 100vw;
   }
   
-  .events-header h1 {
-    font-size: 2rem;
+  .events-header {
+    padding: 1rem 0;
   }
   
   .events-filters {
     flex-direction: column;
     align-items: stretch;
+    padding: 0 10px;
   }
   
   .search-container {
     min-width: auto;
+    max-width: none;
   }
   
   .events-grid {
     grid-template-columns: 1fr;
+    padding: 0 10px;
+    gap: 1rem;
+  }
+  
+  .events-stats {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .events-page {
+    padding: 5px;
+  }
+  
+  .events-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .events-header p {
+    font-size: 0.9rem;
+  }
+  
+  .search-input,
+  .category-select {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .events-filters {
+    padding: 0 5px;
+  }
+  
+  .events-grid {
+    padding: 0 5px;
+  }
+  
+  .events-stats {
+    padding: 0 5px;
   }
 } 
