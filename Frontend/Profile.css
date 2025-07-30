@@ -2,6 +2,8 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .profile-header {
@@ -24,7 +26,7 @@
 }
 
 .profile-info h1 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   color: #1e293b;
   margin-bottom: 0.5rem;
 }
@@ -66,6 +68,8 @@
   gap: 1rem;
   margin-bottom: 2rem;
   border-bottom: 2px solid #e2e8f0;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
 }
 
 .tab-button {
@@ -78,6 +82,7 @@
   color: #64748b;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .tab-button:hover {
@@ -94,6 +99,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  min-height: 400px;
 }
 
 .detail-section {
@@ -227,6 +233,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .save-button {
@@ -277,15 +284,18 @@
   color: #64748b;
 }
 
-@media (max-width: 768px) {
+/* Responsive design - Stack columns at 700px */
+@media (max-width: 700px) {
   .profile-page {
     padding: 10px;
+    width: 100vw;
   }
   
   .profile-header {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    padding: 1.5rem;
   }
   
   .profile-stats {
@@ -294,6 +304,16 @@
   
   .profile-tabs {
     flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .profile-content {
+    padding: 1.5rem;
   }
   
   .event-item {
@@ -304,5 +324,46 @@
   
   .event-status {
     align-self: flex-end;
+  }
+  
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page {
+    padding: 5px;
+  }
+  
+  .profile-header {
+    padding: 1rem;
+  }
+  
+  .profile-avatar img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .profile-info h1 {
+    font-size: 1.5rem;
+  }
+  
+  .profile-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .profile-tabs {
+    flex-direction: column;
+  }
+  
+  .tab-button {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .profile-content {
+    padding: 1rem;
   }
 } 
