@@ -1,5 +1,8 @@
 .home {
   min-height: 100vh;
+  min-width: 150vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .hero-section {
@@ -7,18 +10,29 @@
   color: white;
   padding: 80px 20px;
   text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 1rem;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   margin-bottom: 2rem;
   opacity: 0.9;
+  line-height: 1.6;
 }
 
 .hero-buttons {
@@ -36,6 +50,8 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  font-size: 1rem;
+  min-width: 150px;
 }
 
 .btn-primary {
@@ -46,6 +62,7 @@
 .btn-primary:hover {
   background: #4338ca;
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
 }
 
 .btn-secondary {
@@ -58,16 +75,18 @@
   background: white;
   color: #667eea;
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
 
 .features-section {
   padding: 80px 20px;
   background: #f8fafc;
+  width: 100%;
 }
 
 .features-section h2 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   margin-bottom: 3rem;
   color: #1e293b;
 }
@@ -78,6 +97,7 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .feature-card {
@@ -86,11 +106,12 @@
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon {
@@ -117,14 +138,17 @@
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 2rem;
+  width: 100%;
 }
 
 .stat-item {
   text-align: center;
+  flex: 1;
+  min-width: 150px;
 }
 
 .stat-item h3 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #4f46e5;
@@ -135,17 +159,15 @@
   opacity: 0.8;
 }
 
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
+/* Responsive design - Stack columns at 700px */
+@media (max-width: 700px) {
+  .home {
+    min-width: 100vw;
   }
   
-  .hero-content p {
-    font-size: 1rem;
-  }
-  
-  .features-section h2 {
-    font-size: 2rem;
+  .hero-section {
+    padding: 60px 15px;
+    min-height: 50vh;
   }
   
   .hero-buttons {
@@ -155,5 +177,57 @@
   
   .btn {
     width: 200px;
+    text-align: center;
+  }
+  
+  .features-section {
+    padding: 60px 15px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+  
+  .stats-section {
+    padding: 40px 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-item {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 10px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    width: 180px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .features-section {
+    padding: 40px 10px;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+  
+  .stats-section {
+    padding: 30px 10px;
   }
 } 
